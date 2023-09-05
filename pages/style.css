@@ -1,3 +1,21 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-color: red;
+}
+
+header {
+  background-color: orange;
+}
+
+.print-size {
+  font-size: 10px;
+  font-weight: bolder;
+}
+
 #myInput {
     background-image: url('/css/searchicon.png'); /* Add a search icon to input */
     background-position: 10px 12px; /* Position the search icon */
@@ -12,21 +30,30 @@
   #myUL {
     /* Remove default list styling */
     list-style-type: none;
-    padding: 0;
-    margin: 0;
+    padding-top: 2px;
+    padding-right: 2px;
+    padding-bottom: 2px;
+    margin-right: 2px;
+    margin-left: 2px;
+    margin-top: 2px;
+    margin-bottom: 1px
   }
   
   #myUL li a {
-    border: 1px solid #ddd; /* Add a border to all links */
-    margin-top: -1px; /* Prevent double borders */
-    background-color: #f6f6f6; /* Grey background color */
+    border: 2px dotted red; /* Add a border to all links */
+    margin-top: -2px; /* Prevent double borders */
+    background-color: black; /* Black background color */
     padding: 12px; /* Add some padding */
     text-decoration: none; /* Remove default text underline */
     font-size: 18px; /* Increase the font-size */
-    color: black; /* Add a black text color */
-    display: block; /* Make it into a block element to fill the whole list */
+    color: white; /* Add a white text color */
+    display: inline-block; /* Make it into a inline block element to fill the whole list */
   }
   
   #myUL li a:hover:not(.header) {
-    background-color: #eee; /* Add a hover effect to all links, except for headers */
+    background-color: blue; /* Add a hover effect to all links, except for headers */
+    color: black; /* When hovered changes color to black */
+    border-radius: 50px;
+    border-style: double;
+    transition: 1000ms;
   }
