@@ -8,9 +8,70 @@
     <header>
         <h1>Welcome to this website</h1>
         <p class="print-size">V1.0.0</p>
+        <style>
+                    * {
+            margin: 0px;
+            padding: 0px;
+            }
+
+            body {
+            background-color: red;
+            }
+
+            header {
+            background-color: orange;
+            }
+
+            .print-size {
+            font-size: 10px;
+            font-weight: bolder;
+            }
+
+            #myInput {
+                background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+                background-position: 10px 12px; /* Position the search icon */
+                background-repeat: no-repeat; /* Do not repeat the icon image */
+                width: 100%; /* Full-width */
+                font-size: 16px; /* Increase font-size */
+                padding: 12px 20px 12px 40px; /* Add some padding */
+                border: 1px solid #ddd; /* Add a grey border */
+                margin-bottom: 12px; /* Add some space below the input */
+            }
+            
+            #myUL {
+                /* Remove default list styling */
+                list-style-type: none;
+                padding-top: 2px;
+                padding-right: 2px;
+                padding-bottom: 2px;
+                margin-right: 2px;
+                margin-left: 2px;
+                margin-top: 2px;
+                margin-bottom: 1px
+            }
+            
+            #myUL li a {
+                border: 2px dotted red; /* Add a border to all links */
+                margin-top: -2px; /* Prevent double borders */
+                background-color: black; /* Black background color */
+                padding: 12px; /* Add some padding */
+                text-decoration: none; /* Remove default text underline */
+                font-size: 18px; /* Increase the font-size */
+                color: white; /* Add a white text color */
+                display: inline-block; /* Make it into a inline block element to fill the whole list */
+            }
+            
+            #myUL li a:hover:not(.header) {
+                background-color: blue; /* Add a hover effect to all links, except for headers */
+                color: black; /* When hovered changes color to black */
+                border-radius: 50px;
+                border-style: double;
+                transition: 1000ms;
+            }  
+        </style>
     </header>
     <body>
-        </div>
+        <div class="search">
             <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for pages..">
                 <ul id="myUL">
                     <li><a href="page_1.html">page1</a></li>
@@ -29,9 +90,26 @@
                 <p class="print-size">version: 1.0.0</p>
             </main>
         <!--scripting-->
-        <script src="script.js"></script>
-        <script src="updates.py"></script>
-        <script src="major_update.py"></script>
-        <script src="minor_update.py"></script>
+        <script src="script.js">
+                function myFunction() {
+                // Declare variables
+                    var input, filter, ul, li, a, i, txtValue;
+                    input = document.getElementById('myInput');
+                    filter = input.value.toUpperCase();
+                    ul = document.getElementById("myUL");
+                    li = ul.getElementsByTagName('li');
+                
+                    // Loop through all list items, and hide those who don't match the search query
+                    for (i = 0; i < li.length; i++) {
+                    a = li[i].getElementsByTagName("a")[0];
+                    txtValue = a.textContent || a.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        li[i].style.display = "";
+                    } else {
+                        li[i].style.display = "none";
+                    }
+                }
+            }
+        </script>
     </body>
 </html>
